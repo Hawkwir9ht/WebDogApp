@@ -124,7 +124,7 @@ namespace WebDogApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var updated = _dogService.UpdateDog(id, bindingModel.Name, bindingModel.Age, bindingModel.BreedId, bindingModel.Picture);
+                var updated = _dogService.UpdateDog(id, bindingModel.Name, bindingModel.Age, bindingModel.BreedId, bindingModel.Picture, bindingModel.Description);
                 if (updated)
                 {
                     return this.RedirectToAction("Index");

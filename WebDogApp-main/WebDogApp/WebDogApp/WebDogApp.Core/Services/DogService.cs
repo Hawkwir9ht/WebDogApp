@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,7 +75,7 @@ namespace WebDogApp.Core.Services
             return _context.SaveChanges() != 0;
         }
 
-        public bool UpdateDog(int dogId, string name, int age, int breedId, string picture)
+        public bool UpdateDog(int dogId, string name, int age, int breedId, string picture, string description)
         {
             var dog = GetDogById(dogId);
             if (dog == default(Dog))
@@ -85,6 +86,7 @@ namespace WebDogApp.Core.Services
             dog.Age = age;
             dog.Breed = _context.Breeds.Find(breedId);
             dog.Picture = picture;
+            dog.Description = description;
 
             _context.Update(dog);
             return _context.SaveChanges() != 0;
